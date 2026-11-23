@@ -1,0 +1,13 @@
+# HTTPS otomatis (Let's Encrypt). Domain diambil dari .env
+{$MOODLE_DOMAIN} {
+	encode gzip zstd
+	request_body {
+		max_size 256MB
+	}
+	reverse_proxy moodle:8080
+}
+
+{$JITSI_DOMAIN} {
+	encode gzip zstd
+	reverse_proxy jitsi-web:80
+}
